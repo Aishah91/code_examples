@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>A List Web Design</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Online portfolio/ web design firm of full stack developer, web designer & seo specialist A'Ishah Karriem. Offers affordable web design for small business">
+  <meta name="keywords" content="full stack web developer, freelance web developer, freelance web designer, freelance full stack web developer, remote web designer, remote front end developer, philadelphia web design company, web design services for small business, affordable web design for small business, web designer in pa, web design firm, seo specialist, organic seo results">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110187042-3"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+  		gtag('config', 'UA-110187042-3');
+	</script>
+
+	
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+  				<div class="site-logo">
+					<img src="images/web-developer-logo.png"/>
+					<h2>A-List Web Design & Development Services</h2>
+				</div> <!-- line ends site-logo div -->
+			</div>  <!-- line ends col-sm-4 div -->
+			<div class="col-sm-8">
+				<div class="social-media">
+					<ul>
+						<li><a href="https://www.facebook.com/A-List-Web-Design-410372992897680/" target="_blank"><img src="images/facebook-icon.png"/></a></li>
+						<li><a href="https://twitter.com/AListWebDesign1" target="_blank"><img src="images/twitter-icon.png"/></a></li>
+					</ul>
+				</div> <!-- line ends social media div -->
+				<br/>
+				<div class="tagline-title">
+					<h4>Full Stack <br/> Web Developer</h4>
+					<p><a href="mailto:inquiry@alistwebdesign.com" target="_blank">inquiry@alistwebdesign.com</a></p>
+				</div> <!-- line ends tagline-title div -->
+			</div> <!-- line ends col-sm-8 div -->
+		</div> <!-- line ends row div -->
+		<nav class="navbar navbar-expand-lg">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    			<span class="navbar-toggler-icon">Menu</span>
+  			</button>
+			   <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	    			<ul class="navbar-nav">
+	      				<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+	      				<li class="nav-item"><a class="nav-link" href="#myBio">Bio</a></li>
+	      				<li class="nav-item"><a class="nav-link" href="#myServices">Services</a></li>
+	      				<li class="nav-item"><a class="nav-link" href="#myWorks">See Works</a></li>
+	      				<li class="nav-item"><a class="nav-link" href="#myPrices">Prices</a></li>
+	      				<li class="nav-item"><a class="nav-link" href="#contactMe">Contact</a></li>
+	    			</ul>
+    			</div>
+		 </nav>
+		 <div class="banner">
+		 	<img class="img-fluid" src="images/web-developer-banner.png" alt="Full Stack Web Developer">
+		 </div>
+		 <div class="services">
+			 <a name="myServices" id="myServices"></a>
+		 	<h2>Services</h2>
+		 	<ul class="services-list">
+		 		<li>Web Developement</li>
+		 		<li>Web Design</li>
+		 		<li>SEO Specialist</li>
+		 		<li>Online Marketing</li>
+		 		<li>Social Media Management</li>
+				<li>Website Maintenance</li>
+		 	</ul>
+		 	<div class="dropdown text-center">
+    			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      				Additional Services
+    			</button>
+   			 <div class="dropdown-menu">
+      			<a class="dropdown-item" href="#">Web Content Coordinator</a>
+      			<a class="dropdown-item" href="#">Professional Content Writer</a>
+      			<a class="dropdown-item" href="#">Website Auditor</a>
+      			<a class="dropdown-item" href="#">Website Debugging</a>
+    		 </div>
+  			</div>
+		 </div> <!-- line ends services div -->
+
+		 <div class="works">
+		 	<h2>My Works</h2>
+			 <a name="myWorks" id="myWorks"></a>
+		 	<div class="row">
+  				<div class="col-lg-4">
+					<div class="site-featured-1">
+						<a href="http://makingachangegroup.org" target="_blank"><img src="images/nonprofit-website.png"/></a>
+						<p class="site-title"><a href="http://makingachangegroup.org" target="_blank">Making a Change Group</a></p>
+						<p class="site-info"><em>Nonprofit Organization Site</em></p>	
+					</div>
+				</div>
+  				<div class="col-lg-4">
+					<div class="site-featured-2">
+						<a href="http://charismahomedecor.com" target="_blank"><img src="images/elegant-home-decor.png"/></a>
+						<p class="site-title"><a href="http://charismahomedecor.com" target="_blank">Charisma Home Decor</a></p>
+						<p class="site-info"><em>Online Home Decor Site</em></p>	
+					</div>
+				</div>
+  				<div class="col-lg-4">
+					<div class="site-featured-3">
+						<a href="http://www.askmpublishing.com/" target="_blank"><img src="images/singer-songwriter-website.png"/></a>
+						<p class="site-title"><a href="http://www.askmpublishing.com/" target="_blank">ASKM Publishing</a></p>
+						<p class="site-info"><em>Music Publishing and Artist Site</em></p>	
+					</div>
+				</div>
+			</div>
+			<div class="dropdown works-menu text-center">
+    			<button type="button" class="btn dropdown-toggle works-menu" data-toggle="dropdown">
+      				More Works
+    			</button>
+   			 <div class="dropdown-menu works-menu">
+      			<a class="dropdown-item" href="http://marketstreetballroom.com/" target="_blank">Martket Street Ballroom</a>
+      			<a class="dropdown-item" href="https://healthandsciencecenter.com/" target="_blank">Health and Science Center, Inc.</a>
+    		 </div>
+  			</div>
+		 </div> <!-- line ends works div -->
+		
+	<div class="prices">
+		<h2 class="price-title">Prices</h2>
+		<a name="myPrices" id="myPrices"></a>
+		<div id="accordion">
+
+  		 <div class="card">
+   			 <div class="card-header">
+     			 <a class="card-link" data-toggle="collapse" href="#collapseOne">
+       				 Web Design
+      			</a>
+   			 </div>
+    	 <div id="collapseOne" class="collapse show" data-parent="#accordion">
+      		<div class="card-body">
+        		<h2>Standard Template Based Website</h2>
+				<h4>Starts at $300</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>5-8 Web Pages</li>
+					<li>Responsive Web Design</li>
+					<li>Secure Coding</li>
+					<li>Social Media Integration</li>
+					<li>1 Free Site Revision</li>
+				</ul>
+				<hr/>
+				<h2>Standard Template Based E-Commerce Website</h2>
+				<h4>Starts at $350</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>5-10 Web Pages</li>
+					<li>Responsive Web Design</li>
+					<li>Secure Coding</li>
+					<li>Social Media Integration</li>
+					<li>1 Free Site Revision</li>
+				</ul>
+      		</div>
+    	  </div>
+  		</div>
+
+  	<div class="card">
+    	<div class="card-header">
+     		 <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+        		Web Development
+      		</a>
+    	</div>
+    	<div id="collapseTwo" class="collapse" data-parent="#accordion">
+      		<div class="card-body">
+        		<h2>Standard Website From Scratch</h2>
+				<h4>Starts at $500</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>5-8 Web Pages</li>
+					<li>Responsive Web Design</li>
+					<li>Secure Coding</li>
+					<li>Social Media Integration</li>
+					<li>1 Free Site Revision</li>
+				</ul>
+				<hr/>
+				<h2>Standard E-Commerce Website From Scratch</h2>
+				<h4>Starts at $700</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>5-10 Web Pages</li>
+					<li>Responsive Web Design</li>
+					<li>Secure Coding</li>
+					<li>Social Media Integration</li>
+					<li>1 Free Site Revision</li>
+				</ul>
+      		</div>
+    	 </div>
+  		</div>
+
+  	<div class="card">
+    	<div class="card-header">
+      		<a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+        		SEO
+      		</a>
+    	</div>
+    	<div id="collapseThree" class="collapse" data-parent="#accordion">
+      		<div class="card-body">
+        		<h2>Standard SEO Analyst Package</h2>
+				<h4>Starts at $200 (per month)</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>1-5 targeted keywords</li>
+					<li>Google Analytics Monitoring</li>
+					<li>Google Webmaster Monitoring</li>
+					<li>Sitemap Created and Submitted to Search Engines</li>
+					<li>Site Domain Submitted to Search Engines</li>
+					<li>Site Submitted to 3 Online Directories</li>
+					<li>Social Media Management (3 accounts)</li>
+					<li>2 Press Releases (within specified time period)</li>
+					<li>1 Blog Feature</li>
+					<li>2 Online Ads (within specified time period)</li>
+				</ul>
+				<hr/>
+				<h2>Premium SEO Analyst Package</h2>
+				<h4>Starts at $325 (per month)</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>5-10 targeted keywords</li>
+					<li>Google Analytics Monitoring</li>
+					<li>Google Webmaster Monitoring</li>
+					<li>Sitemap Created and Submitted to Search Engines</li>
+					<li>Site Domain Submitted to Search Engines</li>
+					<li>Site Submitted to 5 Online Directories</li>
+					<li>Social Media Management (4 accounts)</li>
+					<li>4 Press Releases (within specified time period)</li>
+					<li>2 Blog Feature</li>
+					<li>2 Online Ads (within specified time period)</li>
+					<li>3 Twitter Chats (within specified time period)</li>
+					<li>Weekly to Monthly Blog Post Published</li>
+				</ul>
+      		</div>
+    	</div>
+  	</div>
+			
+ <div class="card">
+    	<div class="card-header">
+      		<a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+        	   Online Marketing
+      		</a>
+    	</div>
+    	<div id="collapseFour" class="collapse" data-parent="#accordion">
+      		<div class="card-body">
+        		<h2>Standard Online Marketing Package</h2>
+				<h4>Starts at $150 (per month)</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>Social Media Management (3 accounts)</li>
+					<li>2 Blog Features</li>
+					<li>2 Online Ads</li>
+					<li>2 Press Releases (within specified time period)</li>
+					<li>2 Twitter Chats (within specified time period)</li>
+				</ul>
+				<hr/>
+				<h2>Premium Online Marketing Package</h2>
+				<h4>Starts at $225 (per month)</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>Social Media Management (5 accounts)</li>
+					<li>3 Blog Features</li>
+					<li>3 Online Ads</li>
+					<li>4 Press Releases (within specified time period)</li>
+					<li>4 Twitter Chats (within specified time period)</li>
+					<li>1 Online Magazine Feature</li>
+					<li>1 Email/Direct Marketing Campaign</li>
+				</ul>
+      		</div>
+    	</div>
+  	</div>
+			
+
+<div class="card">
+    	<div class="card-header">
+      		<a class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
+        		Social Media Management
+      		</a>
+    	</div>
+    	<div id="collapseFive" class="collapse" data-parent="#accordion">
+      		<div class="card-body">
+        		<h2>Standard Social Media Management</h2>
+				<h4>Starts at $125 (per month)</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>Social Media Management (3 accounts)</li>
+					<li>2 Blog Features</li>
+					<li>1 Online Ads</li>
+					<li>2 Twitter Chats (within specified time period)</li>
+				</ul>
+				<hr/>
+				<h2>Premium Social Media Management</h2>
+				<h4>Starts at $175 (per month)</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>Social Media Management (5 accounts)</li>
+					<li>2 Blog Features</li>
+					<li>2 Online Ads</li>
+					<li>4 Twitter Chats (within specified time period)</li>
+					<li>1 Facebook Giveaway (within specified time period)</li>
+      		</div>
+    	</div>
+  	</div>
+			
+<div class="card">
+    	<div class="card-header">
+      		<a class="collapsed card-link" data-toggle="collapse" href="#collapseSix">
+        		Web Site Maintenance
+      		</a>
+    	</div>
+    	<div id="collapseSix" class="collapse" data-parent="#accordion">
+      		<div class="card-body">
+        		<h2>Standard Web Maintenance</h2>
+				<h4>Starts at $75 (per month)</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>Monthly Site Scan</li>
+					<li>1-5 Front End Coding/Design Updates</li>
+					<li>2 Backend Coding Updates</li>
+				</ul>
+				<hr/>
+				<h2>Premium Web Maintenance</h2>
+				<h4>Starts at $125 (per month)</h4>
+				<p><em>Includes</em>:</p>
+				<ul>
+					<li>Weekly Site Scan</li>
+					<li>1-10 Front End Coding/Design Updates</li>
+					<li>4 Backend Coding Updates</li>
+      		</div>
+    	</div>
+  	</div>
+	
+	<div class="card">
+    	<div class="card-header">
+      		<a class="collapsed card-link" data-toggle="collapse" href="#collapseSeven">
+        		Payment Options
+      		</a>
+    	</div>
+    	<div id="collapseSeven" class="collapse" data-parent="#accordion">
+      		<div class="card-body">
+        		<h2>Payment Option 1</h2>
+				<h4>2 Disbursements</h4>
+				<p><em>Applies for All Services</em>:</p>
+				<ul>
+					<li>50% Deposit of Total</li>
+					<li>50% Balance Due After Project is Complete</li>
+				</ul>
+				<p><em>Payment Methods Accepted: Cash, PayPal, CashApp, Business Check</em></p>
+				<hr/>
+				<h2>Payment Option 2</h2>
+				<h4>3 Disbursements</h4>
+				<p><em>Applies for All Services</em>:</p>
+				<ul>
+					<li>40% Deposit of Total</li>
+					<li>30% Payment After Project is Complete</li>
+					<li>30% Balance 2 Weeks After Project is Complete</li>
+				</ul>
+				<p><em>Payment Methods Accepted: Cash, PayPal, CashApp, Business Check</em></p>
+      		</div>
+    	</div>
+  	</div>		
+	
+	
+	
+ </div> <!-- line ends accordian div -->
+	
+	<div class="dropdown text-center">
+    			<button type="button" id="additional-prices" class="btn dropdown-toggle" data-toggle="dropdown">
+      				Prices for Additional Services
+    			</button>
+   			 <div class="dropdown-menu">
+      			<a class="dropdown-item" href="#">Web Content Coordinator - Starts at $25 per page</a>
+      			<a class="dropdown-item" href="#">Professional Content Writer - Starts at $20 per assignment</a>
+      			<a class="dropdown-item" href="#">Website Auditor - Starts at $75</a>
+      			<a class="dropdown-item" href="#">Website Debugging - Starts at $75</a>
+    		 </div>
+		<p><em>*Prices for additional services can vary depending on details of request/assignment</em></p>
+  			</div>
+	</div>
+	
+	<br/>
+			
+	<div class="row">
+  		<div class="col-sm-4">
+			<div class="developer-bio">
+				<a name="myBio" id="myBio"></a>
+				<h2>Bio</h2>
+				<p><em>My name is A'Ishah Karriem and I'm a Full Stack Web Developer, Professional Web Designer and SEO Specialist that specializes in creating quality, custom and secure websites at affordable prices. I've mastered the art of blending backend programming with beautiful, user-friendly front end design. This makes me the perfect web developer for your next site. I can develop and design your site from all angles. I've been a web developer and designer for over 6 years starting in the Winter of 2012. I initially started out as a front end developer working directly under my friend and mentor, application developer Dominique Pereira. In time I expanded my skills to backend end coding and programming. Some of my front and backend developer skills include: HTML/HTML5, CSS/CSS3, JavaScript, jQuery, SQL/MySQL, PHP, Drupal, WordPress, Bootstrap, Ecommerce design, organic SEO results and much more. These professional skills have allowed me to work for established companies such as <a class="bio-link" href="https://investor.vanguard.com/home/" target="_blank">Vanguard</a>, <a class="bio-link" href="https://www.gse.upenn.edu/" target="_blank">University of Penn </a> and more, while also allowing me to perform freelance tasks such as creating websites for companies <a class="bio-link" href="http://charismahomedecor.com/" target="_blank">Charisma Home Decor </a>, <a class="bio-link" href="http://makingachangegroup.org/" target="_blank">Making a Change Group </a>, <a class="bio-link" href="https://healthandsciencecenter.com/" target="_blank">Health and Science Center, Inc. </a> and others. Browse my past works, view my affordable prices and feel free to contact me anytime for your next website, or any web related task. </em></p>
+			</div>
+		</div>
+  		<div class="col-sm-8">
+			<div class="contact-form">
+				<h2>Contact Me</h2>
+				<a name="contactMe" id="contactMe"></a>
+								<p>Inquiry about a website or any of my services</p>
+				<form method="post" action="index.php" role="form">
+					<div class="form-group">
+						<input type="text" name="name" class="form-control" placeholder="Name">
+						 <span class="error"></span>
+   	    				<!-- line above: PHP code that will run variable $firstNameErr; if "first name" input is empty -->
+					</div>
+					<div class="form-group">
+						<input type="email" name="email" class="form-control" placeholder="Email">
+							<span class="error"> </span>
+   	 						<!-- line above: PHP code that will run variable $emailErr; if "email" input is empty -->
+					</div>
+					<div class="form-group">
+						<textarea name="message" rows="10" class="form-control" placeholder="Message..."></textarea>
+						<span class="error"> </span>
+   	    				<!-- line above: PHP code that will run variable $commentErr; if "comment" input is empty -->
+					</div>
+					<div class="checkbox">
+						<p>What services are you interested in?</p>
+						<label><input type="checkbox" name="service" value="Web Design"> Web Design</label><br>
+						    	 					 <!-- line above: PHP code that says if variable $gender is set and $gender is equal to "male" then echo "checked" -->
+						<label><input type="checkbox" name="service" value="Web Development"> Web Development</label><br>
+						    	 					 <!-- line above: PHP code that says if variable $gender is set and $gender is equal to "male" then echo "checked" -->
+						<label><input type="checkbox" name="service" value="SEO"> SEO</label><br>
+						    	 					 <!-- line above: PHP code that says if variable $gender is set and $gender is equal to "male" then echo "checked" -->
+						<label><input type="checkbox" name="service" value="Online Marketing"> Online Marketing</label><br>
+						    	 					 <!-- line above: PHP code that says if variable $gender is set and $gender is equal to "male" then echo "checked" -->
+						<label><input type="checkbox" name="service" value="Social Media Management"> Social Media Management</label><br>
+						    	 					 <!-- line above: PHP code that says if variable $gender is set and $gender is equal to "male" then echo "checked" -->
+						<label><input type="checkbox" name="service" value="Website Maintenance"> Website Maintenance</label><br/>
+						    	 					 <!-- line above: PHP code that says if variable $gender is set and $gender is equal to "male" then echo "checked" -->
+   	 					  <span class="error"></span>
+   	 					  <!-- line above: PHP code that will run variable $genderErr; if "gender" input is empty -->
+						<br/><br/>
+						<label>
+							<input type="checkbox" name="check" value="humanCheck"> I am not a robot
+							<br/>
+							    	 					 	 <!-- line above: PHP code that says if variable $gender is set and $gender is equal to "male" then echo "checked" -->
+   	 					 	  <span class="error"></span>
+   	 					  <!-- line above: PHP code that will run variable $genderErr; if "gender" input is empty -->
+						</label>
+					</div>
+					<input id="submit-button" type="submit" name="submit" value="Send Message">
+					<br/>
+				</form>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<br/>
+	
+	<footer>
+	  <div class="row">
+  			<div class="col-lg-4">
+				<div class="footer-area-1">
+					<h2>A-List Web Design Services <br/> by A'Ishah Karriem</h2>
+					<p>&copy; Copyright 2019</p>
+					<p><a class="sitemap" href="http://alistwebdesign.com/alist-sitemap.xml" target="_blank">Sitemap</a></p>
+				</div>
+			</div>
+  			<div class="col-lg-4">
+	  			<div class="footer-area-2">
+					<p style="text-align: center; font-size: 18px;">Terms &amp; Conditions</p>
+					<p style="font-size: 12px; text-align: center;">*Will be Given to Client Once Project is Started and Agreed Upon By Both Parties</p>
+	  			</div>
+			</div>
+  		<div class="col-lg-4">
+	  		<div class="footer-area-3">
+				<p><a href="mailto:inquiry@alistwebdesign.com" target="_blank">inquiry@alistwebdesign.com</a><br/>
+				<a href="tel:267-223-4240">267-223-4240</a> (Call or Text)</p>
+				<p style="font-size: 16px;"><em>Specializing in affordable web design services for small businesses</em></p>
+				<p style="font-size: 14px;">Servicing the Tri-State area of PA, including NJ, DE and NY. <br/> Also a remote web developer (anywhere in USA).</p>
+
+	  		</div>
+		</div>
+	 </div>
+	</footer>
+	
+</body>
+</html>
