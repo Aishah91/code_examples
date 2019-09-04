@@ -1,0 +1,121 @@
+#header-nav {
+	background-color: $steel;
+	height: 35px;
+	overflow: hidden;
+}
+
+#resources-nav {
+	top: 8px !important;
+	position: absolute;
+
+	p {
+		font-family: $lato;
+		color: $blue;
+		font-size: 14px;
+		font-weight: bold;
+		text-transform: lowercase;
+
+		a {
+			text-transform: none;
+			color: $sky;
+
+			&:hover {
+				color: $vine;
+			}
+		}
+	}
+}
+
+#header-right {
+  margin-top: 2px !important;
+
+  a {
+    font-weight: bold;
+    position: relative;
+    top: 2px;
+  }
+}
+
+#block-search-form input[type=submit] {
+	top: 6px;
+	background-size: 60%;
+}
+
+#main-row {
+    margin-top: 25px;
+    border-top: 1px solid $screen;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    background: $neutral;
+}
+
+#main-container {
+    padding: 0 15px;
+    position: relative;
+}
+
+/* ---------- Experts Node -------- */
+
+.node-type-bio {
+
+	.field-name-field-image img {
+		float: left;
+		padding: 0 1em 0.5em 0;
+	}
+
+	.field-name-field-biography {
+		margin-bottom: 1.5em;
+		border-bottom: 1px solid $screen;
+		padding-bottom: 1em;
+		margin-top: 1.5em;
+	}
+
+	.view-expert-projects-publications {
+
+		a {
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+				color: $cpreLight;
+			}
+		}
+
+		.views-field-field-publication-date {
+			font-style: italic;
+		}
+
+		h3 {
+			margin-bottom: 0px;
+			margin-top: 1em;
+		}
+
+	}
+
+}
+.navbar-brand {
+	padding: 10px 10px 0px 10px;
+}
+
+.nav > li {
+	a {
+		color: $nav-link-color;
+	}
+
+ 	> a:hover,
+ 	> a:focus,
+ 	&.active-trail a,
+ 	> a.active {
+ 		background-color: $nav-link-active-bg;
+ 		color: $nav-link-active-color;
+ 	}
+}
+
+.nav, .navbar-nav {
+	& > li > a {
+		padding: 30px 10px;
+		font-size: 14px;
+		text-decoration: none;
+		text-transform: none;
+	}
+}
