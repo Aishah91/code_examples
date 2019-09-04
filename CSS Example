@@ -1,0 +1,99 @@
+<html>
+ <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Tip Calculator</title>
+  <style>
+    .mainArea {
+      width: 400px;
+      height: 400px;
+      margin: 75px 20px 25px 75px;
+      padding-top: 25px;
+      padding-left: 50px;
+      border: 20px solid #5c5c8a; 
+      border-radius: 40px;
+      background-color: #3973ac;
+    }
+    #calculatorArea {
+      padding-top: 30px;
+      padding-left: 50px;
+      padding-right: 15px;
+      padding-bottom: 40px;
+      margin-left: 50px;
+      width: 200px;
+      height: 300px;
+      border: 4px dotted #990033;
+      border-radius: 20px;
+      background-color: #f0f0f5;
+    }
+    h4 {
+        font-size: 22px;
+        padding-left: 15px;
+        text-decoration: underline;
+    }
+    p {
+       color: #5c5c8a;
+       font-weight: bolder;
+       font-size: 18px;
+    }
+    button {
+      color: #5c5c8a;
+      font-weight: bold;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      border: 1px solid #5c5c8a;
+      padding: 5px;
+      background-color: #e6ccb3;
+      border-radius: 20px;
+      margin-left: 25px;
+    }
+  </style>
+  <script>
+  	var levelOfServiceOptions = {
+  		excellent: 20,
+  		good: 15,
+  		average: 10,
+  		poor: 5,
+  		veryBad: 0
+  	};
+  	function calculateTipTotal(listOfServices) {
+  		var billTotal = document.getElementById("billAmount").value;
+  		console.log(billTotal);
+  		var serviceOptionSelected = $("#serviceOptions option:selected").val();
+  		console.log(serviceOptionSelected);
+  		var percentageBasedOnService = listOfServices[serviceOptionSelected];
+  		console.log(percentageBasedOnService);
+  		var tipTotalDetermined = percentageBasedOnService / 100 * billTotal;
+  		console.log(tipTotalDetermined);
+  		var convertDecimalPlace = tipTotalDetermined.toFixed(2);
+  		console.log(convertDecimalPlace);
+  		$("#tipResults").html("Tip amount due is <strong>$" + convertDecimalPlace + "</strong>");
+
+  	}
+  </script>
+</head>
+<body>
+	<div class="outerArea">
+		<div class="mainArea">
+      <div id="calculatorArea">
+			<h4>Tip Calculator</h4>
+			<p>How much was your bill?</p>
+			$ <input id="billAmount" type="number" name="billAmount"><br/><br/>
+			<p>How was your service?</p>
+			<select id="serviceOptions" name="submitted[select-service-option]" class="select-a-service">
+ 				<option value="" selected="selected">-- Choose an Option --</option>
+ 				<option value="excellent">Excellent - 20%</option>
+ 				<option value="good">Good - 15%</option>
+ 				<option value="average">Average - 10%</option>
+ 				<option value="poor">Poor - 5%</option>
+ 				<option value="veryBad">Very Bad - 0%</option>
+ 			</select>
+ 			<br/>
+ 			<br/>
+ 			<button onclick="calculateTipTotal(levelOfServiceOptions)">Calculate!</button>
+ 			<br/>
+ 			<p id="tipResults"></p>
+     </div>
+ 		</div>
+ 	</div>
+</body>
+</html>
