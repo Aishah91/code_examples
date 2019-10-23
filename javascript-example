@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Business Listing Search</title>
+  <style>
+  #contentArea {
+    padding-top: 40px;
+    padding-left: 40px;
+  }
+  h2.title {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+    color: #004080;
+  }
+  h4.title {
+    font-size: 20px;
+  }
+    hr {
+      display: none;
+    }
+    #infoTable {
+      margin: auto; 
+      width: 90%;
+      padding-top: 70px;
+      padding-left: 2%;
+    }
+    caption.listingTitle {
+      text-align: center;
+      font-size: 26px;
+      padding-bottom: 25px;
+      text-decoration: underline;
+      color: #004080;
+      font-weight: bold;
+    }
+    table, th, td {
+      border: 2px solid #004080;
+      border-collapse: collapse;
+    }
+    tbody, th, td {
+      padding: 8px;
+    }
+    th {
+      font-size: 20px;
+    }
+    td {
+      font-size: 18px;
+    }
+    #listingResults li a {
+      color: #004080;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 25px;
+    }
+    #listingResults li a:active {
+      color: #602060;
+    }
+    #listingResults li a:hover {
+      color: #862d59;
+    }
+    td a:hover {
+      color: #004080;
+      font-weight: bold;
+    }
+    button {
+      color: #004080;
+      font-weight: bold;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      background-color: #e0e0eb;
+      border: 2px solid #004080;
+      border-radius: 25px;
+      padding: 5px 10px;
+    }
+    select {
+      font-size: 16px;
+      border: 1px solid #004080;
+    }
+  </style>
+  <script>
+  	var businessListings = {
+  		hair: {
+  			"Tina's Hair Salon": {
+  				 Address: "1520 Lakeview Drive Chester, Pa 19013",
+  				 PhoneNumber: "610-872-1109",
+  				 Website: "<a href='#' target='_blank'>www.tinahair.com</a>",
+  				 Specialty: "All hair types"
+  			}, // line ends Tina Hair Salon info
+  			"Dollhouse Hair Studio": {
+  				Address: "485 4th Street Chester, Pa 19013",
+  				PhoneNumber: "484-419-8595",
+  				Website: "<a href='#' target='_blank'>www.dhhairstudio.com</a>",
+  				Specialty: "Braiding, All hair types"
+  			} // line ends dollhouse info
+  		}, // line ends hair category
+  		healBeauty: {
+  			"Myra's Make-Up Kit": {
+  				Address: "4260 Jeffrey Lane Chester, Pa 19013",
+  				PhoneNumber: "610-848-2014",
+  				Website: "<a href='#' target='_blank'>www.mymakeupkit.com</a>",
+  				Specialty: "Make all skin tones, ages, events"
+  			}, // line ends Myra's makeup info
+  			"Purity Spa": {
+  				Address: "213 W. 24th Street Chester, Pa 19013",
+  				PhoneNumber: "267-608-4752",
+  				Website: "<a href='#' target='_blank'>www.purityspa.com</a>",
+  				Specialty: "Universal"
+  			} // line ends Purity spa info
+  		}, // line ends healBeauty category
+  		food: {
+  			"Larry's Pies": {
+  				Address: "250 3rd Street Chester, Pa 19013",
+  				PhoneNumber: "610-724-2008",
+  				Website: "N/A",
+  				Specialty: "Pies, Desserts"
+  			}, // line ends Larry's Pies info
+  			"C-Pride Super Market": {
+  				Address: "3018 W. 7th Street Chester, Pa 19013",
+  				PhoneNumber: "610-803-2020",
+  				Website: "<a href='#' target='_blank'>www.cpridemarket.com</a>",
+  				Specialty: "All Foods, Groceries"
+  			} // line ends C-Pride Market info
+  		}, // line ends food category
+  		travel: {
+  			"G&W Travel Agency": {
+  				Address: "200 Avenue of States Chester, Pa 19013",
+  				PhoneNumber: "484-203-8587",
+  				Website: "<a href='#' target='_blank'>www.gandwtravel.com</a>",
+  				Specialty: "Traveling, All Occasions"
+  			}, // line ends G&W Travel info
+  			"Grant Travel Agency": {
+  				Address: "1834 Edward Street Chester, Pa 19013",
+  				PhoneNumber: "267-515-7062",
+  				Website: "N/A",
+  				Specialty: "Traveling, All Occasions"
+  			} // line ends Grant Travel info
+  		}, // line ends travel category
+  		fitness: {
+  			"Elijah's Supreme Gym": {
+  				Address: "420 Tilghman Street Chester, Pa 19013",
+  				PhoneNumber: "610-898-5040",
+  				Website: "<a href='#' target='_blank'>www.esupremegym.com</a>",
+  				Specialty: "Fitness, All Body Types"
+  			}, // line ends Elijah's Gym info
+  			"Fitness Girl Gym": {
+  				Address: "2790 E. 15th Street Chester, Pa 19013",
+  				PhoneNumber: "267-762-8240",
+  				Website: "<a href='#' target='_blank'>www.esupremegym.com</a>",
+  				Specialty: "Fitness, All Body Types"
+  			} // line ends Fitness Gym info
+  		},
+  		retCloth: {
+  			"Enid and 4 Girls Boutique": {
+  				Address: "2200 Edgmont Avenue Chester, Pa 19013",
+  				PhoneNumber: "610-203-8570",
+  				Website: "<a href='#' target='_blank'>www.enidand4girls.com</a>",
+  				Specialty: "Clothing, Accessories"
+  			}, // line ends Enid and 4 Girls info
+  			"Fatima & Iman's Closet": {
+  				Address: "824 Parker Street Chester, Pa 19013",
+  				PhoneNumber: "610-800-1937",
+  				Website: "<a href='#' target='_blank'>www.fatimaandiman.com</a>",
+  				Specialty: "Clothing, Accessories"
+  			} // line ends Enid and 4 Girls info
+  		}, // line ends retCloth info
+  		auto: {
+  			"Arthur's": {
+  				Address: "1019 Edgmont Avenue Chester, Pa 19013",
+  				PhoneNumber: "484-626-1149",
+  				Website: "N/A",
+  				Specialty: "All Vehicle Issues"
+  			}, // line ends Arthur's info
+  			"Johnson and Son Mechanics": {
+  				Address: "517 Pennell Street Chester, Pa 19013",
+  				PhoneNumber: "610-504-8127",
+  				Website: "<a href='#' target='_blank'>www.johnsonandsons.com</a>",
+  				Specialty: "Auto Body Work"
+  			} // line ends Johnson and Sons info
+  		}, // line ends auto info
+  		homeDec: {
+  			"Charisma Home Decor": {
+  				Address: "7790 Melrose Avenue Chester, Pa 19013",
+  				PhoneNumber: "610-203-9045",
+  				Website: "<a href='http://charismahomedecor.com' target='_blank'>www.charismahomedecor.com</a>",
+  				Specialty: "Handcrafted Home Decor, Elegant Home Decor, All Styles"
+  			}, // line ends Charisma Home Decor info
+  			"Lily's Home Decor": {
+  				Address: "1402 Ward Road Chester, Pa 19013",
+  				PhoneNumber: "267-761-2990",
+  				Website: "<a href='#' target='_blank'>www.lilydesign.com</a>",
+  				Specialty: "All Styles"
+  			} // line ends Lily Home Decor info
+  		}, // line ends homeDec info
+  		photo: {
+  			"Marple Photography": {
+  				Address: "618 Taylor Avenue Chester, Pa 19013",
+  				PhoneNumber: "610-499-8615",
+  				Website: "<a href='#' target='_blank'>www.marplephotography.com</a>",
+  				Specialty: "All Styles, Occasions"
+  			}, // line ends Marple Photography info
+  			"Kyle's Photography": {
+  				Address: "216 W. 9th Street Chester, Pa 19013",
+  				PhoneNumber: "484-223-7831",
+  				Website: "N/A",
+  				Specialty: "Professional Shoots, All Styles, Occasions"
+  			} // line ends Kyle's Photography info
+  		}, // line ends photo info
+  		musEnt: {
+  			"Mark's Studios": {
+  				Address: "2407 Linden Street Chester, Pa 19013",
+  				PhoneNumber: "267-808-4256",
+  				Website: "<a href='#' target='_blank'>www.markstudios.com</a>",
+  				Specialty: "R&B, Hip Hop"
+  			}, // line ends Mark's Studios info
+  			"CC Moore Recording Studio": {
+  				Address: "1420 Melrose Avenue Chester, Pa 19013",
+  				PhoneNumber: "267-615-2009",
+  				Website: "<a href='#' target='_blank'>www.ccmoorestudio.com</a>",
+  				Specialty: "All Genres"
+  			} // line ends CC Moore Recording info
+  		},// line ends musEnt category
+  		paint: {
+  			"Ulysses's Paint": {
+  				Address: "2201 Edgmont Avenue Chester Pa 19013",
+  				PhoneNumber: "267-298-0845",
+  				Website: "<a href='#' target='_blank'>www.ulyssespaint.com</a>",
+  				Specialty: "Mixing Paint, Selling All Paint Types"
+  			}, // line ends Ulysses's Paint info
+  			"Dock Paint Supplies": {
+  				Address: "1007 W. 7th Street Chester, Pa 19013",
+  				PhoneNumber: "484-318-5190",
+  				Website: "N/A",
+  				Specialty: "All Paint Type Supplies"
+  			} // line ends Mark's Studios info
+  		}, // line ends paint category info
+  	}; // line ends "multi-dimensional" array object
+
+    var selectedCategory; // global variable will represent the value of the category user selects
+    var textNameOfBusinessCategorySelected; // global variable will represent the text name of the category selected
+    var nameOfBusinessesUnderCategory; // global variable will represent the businesses under the category selected
+
+  	function businessListingResults(databaseList) {
+      // function is for when a category is selected
+      selectedCategory = $("#select-business-listing option:selected").val();
+      // line above grabs the value of the category you selected
+      console.log(selectedCategory);
+      textNameOfBusinessCategorySelected = $("#select-business-listing option:selected").text();
+      // line above grabs the "text" name of the category selected
+      console.log(textNameOfBusinessCategorySelected);
+      nameOfBusinessesUnderCategory = databaseList[selectedCategory];
+      console.log(nameOfBusinessesUnderCategory);
+      // line above sets variable "nameOfBusinessesUnderCategory" to the values(businesses) listed under selected category
+      $("#listingResults").append("Business Listings Under Category <strong>" + textNameOfBusinessCategorySelected + "</strong> are: <br/><br/>");
+      for (findBusinessNamesUnderCategory in nameOfBusinessesUnderCategory) {
+           $("#listingResults").append("<li><a href='javascript-exercise-16.html#bottomOfPage' onclick='clickListingLink()'>"+ findBusinessNamesUnderCategory + "</a></li>");
+      } // line ends for in loop
+  	} // line closes function
+
+    function clickListingLink(businessLinkSelected) {
+      // function is for when a link is clicked after list of businesses appear
+      var theClickedLink = event.target;
+      // line above sets variable "theClickedLink" to event.target; this sets variable "theClickedLink" to the element that set off event (the element/link that was clicked)
+      console.log(theClickedLink);
+      var textOfClickedLink = $(theClickedLink).text();
+      // line above sets variable "textOfClickedLink" to the text of the element that set off the onclick event 
+      console.log(textOfClickedLink);
+      $("hr").show();
+      seeListingInfoTable(textOfClickedLink);
+    }
+
+    function seeListingInfoTable(businessLinkSelected) {
+      // function is for table that shows info of specific link clicked 
+      var selectedBusinessInfo = nameOfBusinessesUnderCategory[businessLinkSelected];
+      // line above sets variable "selectedBusinessInfo" to = nameOfBusinessesUnderCategory[businessLinkSelected];
+      // nameOfBusinessesUnderCategory[businessLinkSelected]; > represents value of whatever "businessLinkSelected" (text/string of link that's clicked; link that makes event happen) is inside of "nameOfBusinessesUnderCategory"(category user initially selected from drop down menu)
+      console.log(selectedBusinessInfo);
+      var tbl = "";
+        tbl += '<table class="table table-hover">';
+          tbl += '<tbody>';
+          tbl += '<caption class="listingTitle">' + businessLinkSelected + '</caption>';
+          tbl += '<tr>';
+          tbl += '<th>Address</th>';
+          tbl += '<th>Phone Number</th>';
+          tbl += '<th>Website</th>';
+          tbl += '<th>Specialty</th>';
+          tbl += '</tr>';
+          tbl += '<tr>';
+          tbl += '<td><div class="row_data" edit_type="click" col_name="fname">' + selectedBusinessInfo["Address"] + '</div></td>';
+          tbl += '<td><div class="row_data" edit_type="click" col_name="fname">' + selectedBusinessInfo["PhoneNumber"] + '</div></td>';
+          tbl += '<td><div class="row_data" edit_type="click" col_name="fname">' + selectedBusinessInfo["Website"] + '</div></td>';
+          tbl += '<td><div class="row_data" edit_type="click" col_name="fname">' + selectedBusinessInfo["Specialty"] + '</div></td>';
+          tbl += '</tr>';
+        tbl += '</tbody>';
+        tbl += '</table>';
+        $(document).find("#infoTable").html(tbl);
+    } // line ends seeListingInfoTable function
+  </script>
+ </head>
+ <body>
+ 		<div id="contentArea">
+ 			<div id="headingArea">
+ 			<h2 class="title">Directory</h2>
+ 			</div>
+ 			<h4 class="title">Select a Category from the drop down menu to check your local businesses</h4>
+ 			<br/>
+ 			<select id="select-business-listing" name="submitted[select_your_program]" class="select-a-business">
+ 				<option value="" selected="selected">- Select a business category -</option>
+ 				<option value="hair">Hair</option>
+ 				<option value="healBeauty">Health and Beauty</option>
+ 				<option value="food">Food</option>
+ 				<option value="travel">Travel</option>
+ 				<option value="fitness">Fitness</option>
+ 				<option value="retCloth">Retail and Clothing</option>
+ 				<option value="auto">Automotive</option>
+ 				<option value="homeDec">Home Decor</option>
+ 				<option value="photo">Photography</option>
+ 				<option value="musEnt">Music and Entertainment</option>
+ 				<option value="paint">Paint</option>
+ 			</select>
+ 			<br/>
+      <br/>
+      <br/>
+ 			<button class="listingsBtn" onclick="businessListingResults(businessListings)">Search Listings</button>
+ 		</div>
+    <br/>
+    <ul id="listingResults"></ul>
+    <br/>
+    <br/>
+    <hr/>
+    <br/>
+    <div id="bottomOfPage">
+      <div id="infoTable">
+      </div>
+    </div>
+ 	</div>
+ </body>
+</html>
