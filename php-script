@@ -1,0 +1,150 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+    /**
+     * Define Function displayGallery
+     * in the space below.
+     */
+?>
+
+<!DOCTYPE html>
+  <html>
+   <head>
+     <title>Redesign Script</title>
+    </head>
+    <body>
+      <?php
+        // Establish all database credential variables
+        $serverName = "localhost";
+        $username = "root";
+        $password = "root";
+        $databaseName = "redesign_static";
+
+        // Create Database Connection
+        $connection = new mysqli($serverName, $username, $password, $databaseName);
+
+        // Check Database Connection
+        if ($connection->connect_error) {
+          die("Connection failed:" . $connection->connect_error);
+        } // line ends if statement
+
+        $queryNodeRevision = "SELECT nid, vid, title FROM node_revision ";
+        // line above creates variable $queryNodeRevision > 
+
+        $results = mysqli_query($connection, $queryNodeRevision) or die("Bad Query: $results");
+        // line above creates variable $results > actually queries that database and passes in variable "$queryNodeRevision"
+
+        $results = mysqli_fetch_all($results);
+        // line above grabs the entire table and stores it into multidimensional associative array
+
+        /*****START OF GET TITLES ******/
+
+        $outputResults = [];
+
+         foreach ($results as $listOfRows) {
+           // line above goes inside entire multidimensional associative array
+           $currentNID = $listOfRows[0];
+           // line above creates variable $currentNID > set to the value of what's in column 'nid' (represented by 0) each time through the loop
+          // echo "<br/> ---- in group at nid: ".$currentNID."<br>";
+           $storeDuplicates = [];
+           $storeTitlesHighestVID = [];
+
+           foreach ($results as $followingRow) {
+             // line above loops through all the rows in the multidimensional array
+             if ($currentNID === $followingRow[0]) {
+               // line above says > if $currentNID is identical to any of the values in 'nid' (key) row
+               $currentNIDListOfVIDs = $followingRow[1];
+               // line above creates variable $currentNIDListOfVIDs > stores the vid values
+               $currentNIDListOfTitles = $followingRow[2];
+               // line above creates variable $currentNIDListOfTitles > stores the titles
+               array_push($storeDuplicates, $currentNIDListOfVIDs);
+               // line above pushes the VID values of the current nid to the empty array
+               array_push($storeTitlesHighestVID, $followingRow[2]);
+             } // line ends if statement
+           } // line ends foreach loop
+           $maxVID = max($storeDuplicates);
+          // line sets variable $maxVID > to the max value of all the vid values stored in array
+           $outputResults[$currentNID] = end($storeTitlesHighestVID);
+           // line above $outputResults > becomes an associative array  
+         } // line ends foreach loop
+
+        /*****END OF GET TITLES ******/
+
+        $queryBodyTableRevision = "SELECT entity_id, revision_id, body_value FROM field_revision_body ";
+        // line above creates variable $queryBodyTableRevision > 
+
+        $resultsOfBodyQuery = mysqli_query($connection, $queryBodyTableRevision) or die("Bad Query: $results");
+        // line above creates variable $resultsOfBodyQuery > actually queries that database and passes in variable "$queryNodeRevision"
+
+        $resultsOfBodyQuery = mysqli_fetch_all($resultsOfBodyQuery);
+
+        /*****START OF GET Body Content ******/
+        $outputBodyResults = [];
+        // empty array that will store the final output of body content
+
+        foreach ($resultsOfBodyQuery as $eachRow) {
+          // line above goes inside entire multidimensional array
+          $currentEntityID = $eachRow[0];
+          // line above creates variable $currentEntityID > sets item to the value of column (key) entity_id each time through loop
+           $storeDuplicateEntityIDs = [];
+           // line above is array to store entity numbers that appear more than once
+           $storeBodyValues = [];
+           // line above is array to store entity numbers that appear more than once
+          foreach ($resultsOfBodyQuery as $compareEachRow) {
+            if ($currentEntityID === $compareEachRow[0]) {
+              // line above compares if the current entity_id value is identical to any of the other entity_id values in the row
+              $currentRevisionIDForEntityID = $compareEachRow[1];
+              // line above creates variable $currentEntityIDRevisionID > stores the revision_id values
+              $currentBodyValue = $compareEachRow[2];
+              // line above creates variable $currentBodyValue > stores the body content
+              array_push($storeDuplicateEntityIDs, $currentRevisionIDForEntityID);
+              // line above pushes the value of revision_id of the current entity_id item you're on into the empty array
+              array_push($storeBodyValues, $currentBodyValue); 
+               // line above pushes the value of the body of the current entity_id item you're on into the empty array
+            } // line ends if statement
+          } // line ends foreach loop 
+          $maxRevisionID = max($storeDuplicateEntityIDs);
+          // line above creates variable $maxRevisionID > grabs the max of the
+          $outputBodyResults[$currentEntityID] = end($storeBodyValues);
+          // line above adds key and value to empty array making it an associative array
+          $htmlPageTitle = $outputResults[$currentEntityID];
+          // line creates variable that represents title (nid and entity id are the same thing; have the same values)
+          $htmlPageBody = $outputBodyResults[$currentEntityID];
+          // line creates variable $htmlPageBody > represents the body that corresponds with nid/entity id
+        } // line ends foreach loop
+        /*****END OF GET Body Content ******/
+        
+        ///***** Putting Title and Body Content into file using foreach loop ******/
+        foreach ($outputResults as $nid => $valueOfTitles) {
+          $finalNIDEntityNumber = $nid;
+          // line above creates variable for nid numbers (nid and entity id are the same numbers) (known as keys in array)
+          $finalTitle = $valueOfTitles;
+          // line above creates variable for the title of each nid
+          $finalBody = $outputBodyResults[$nid];
+          // line above creates variabe for the body of each nid/entity id
+          makeEachHTMLFile($finalNIDEntityNumber, $finalTitle, $finalBody);
+          // line above runs code that creates file that puts all appropriate content in each time the loop runs
+        } // line ends foreach loop
+
+          ///***** Function to put title and content into html file ******/
+        function makeEachHTMLFile($variableForFileNumber, $variableForTitle, $variableForBody) {
+          $createHTMLFile = fopen("nid-".$variableForFileNumber.".html", "w") or die("Unable to open file!");
+           // line above creates variable $createHTMLFile > creates file 
+          // "nid-$nidNumber.html" > represents name of file to be created
+          $fileContent = "<h1>" . $variableForTitle . "</h1>";
+          // line above creates variable $fileContent > set to content that goes in file
+          fwrite($createHTMLFile, $fileContent);
+          // line above writes the content stored in variable to the file 
+          $fileContent = $variableForBody;
+          // line above creates variable $fileContent > set to content that goes in file
+          fwrite($createHTMLFile, $fileContent);
+          // line above writes the content stored in variable to the file 
+          fclose($createHTMLFile);
+          // line above closes the file
+          } // line closes function 
+      ?>
+    </body>
+   </html>
+
+
