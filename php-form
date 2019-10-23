@@ -124,12 +124,6 @@ error_reporting(E_ALL);
 				<span class="error">* <?php echo $genderErr;?></span>
 				<br/><br/>
 				<input type="submit" name="submit" value="Submit">
-
-				<!-- // To show values in input fields after the submit button is hit, add PHP script inside value attribute. Code below -->
-				<!-- // Name: <input type="text" name="name" value="<?php // echo $name; ?>">  -->
-				<!-- <input type="radio" name="gender"
-					<?php //if (isset($gender) && $gender=="female") echo "checked";?>
-						value="female">Female -->
 			</form>
 		</div>
 	</div>
