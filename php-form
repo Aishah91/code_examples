@@ -1,0 +1,137 @@
+<?php
+ // This file is for all the object oriented code
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+    /**
+     * Define Function displayGallery
+     * in the space below.
+     */
+?>
+<?php
+	// PHP Form Handling
+	// Lines below define variables and set them to empty values
+	$firstName = "";
+	$lastName = "";
+	$email = "";
+	$website = "";
+	$gender = "";
+
+	// Lines below define variables for errors and set them to empty values
+	$firstNameErr = "";
+	$lastNameErr = "";
+	$emailErr = "";
+	$websiteErr = "";
+	$genderErr = "";
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		// line above if statement says: if the server request method is set to "post"
+		if (empty($_POST["firstName"])) {
+			// line above if statement says: if the first name is empty
+			$firstNameErr = "First Name is required";
+			// then display error message >  "First Name is required"
+		} else {
+			$firstName = test_input($_POST["firstName"]);
+			// line above says variable "$firstName" will be set to value of > test_input($_POST["firstName"])
+			if (!preg_match("/^[a-zA-Z ]*$/", $firstName)) {
+				$firstNameErr = "Only letters and white space allowed";
+			} // line closes if statement that checks preg_match
+		}
+
+		//////// Code above validates, check and handle first name
+
+		if (empty($_POST["lastName"])) { 
+			// line above if statement says: if the last name is empty
+			$lastNameErr = "Last Name is required";
+			// then display error message > "Last Name is required"
+		} else {
+			$lastName = test_input($_POST["lastName"]);
+			// line above says variable "$lastName" will be set to value of > test_input($_POST["lastName"])
+			if (!preg_match("/^[a-zA-Z ]*$/", $lastName)) {
+				$lastNameErr = "Only letters and white space allowed";
+			} // line closes if statement that checks preg_match
+		}
+
+		//////// Code above validates, check and handle last name
+
+		if (empty($_POST["email"])) { 
+			// line above if statement says: if the last name is empty
+			$emailErr = "Email is required";
+			// then display error message > "Email is required"
+		} else {
+			$email = test_input($_POST["email"]);
+			// line above says variable "$email" will be set to value of > test_input($_POST["email"])
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      			$emailErr = "Invalid email format"; 
+    		} // line closes if statement that checks email filter
+		}
+
+		//////// Code above validates, check and handle email
+
+		if (empty($_POST["website"])) { 
+			// line above if statement says: if the last name is empty
+			$websiteErr = "Website is required";
+			// then display error message > "Website is required"
+		} else {
+			$website = test_input($_POST["website"]);
+			// line above says variable "$website" will be set to value of > test_input($_POST["website"])
+			if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+      			$websiteErr = "Invalid URL"; 
+    		} // line closes if statement that checks site url address
+		}
+
+		//////// Code above validates, check and handle website
+
+		if (empty($_POST["gender"])) { 
+			// line above if statement says: if the last name is empty
+			$genderErr = "Gender is required";
+			// then display error message > "Website is required"
+		} else {
+			$gender = test_input($_POST["gender"]);
+		// line above says variable "$gender" will be set to value of > test_input($_POST["gender"])
+		}
+
+		//////// Code above validates, check and handle gender
+	} // line closes if statement
+
+	function test_input($data) {
+		// line above creates function "test_input" that passes in parameter "$data"
+		$data = trim($data);
+		$data - stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	} // line closes function
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PHP Form</title>
+</head>
+<body>
+	<div class="outerContent">
+		<div id="formContent">
+			<h1>Registration Form</h1>
+			<p>Fill out the form below to register with us!</p>
+			<p>* Fields are required</p>
+			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<label>First Name: <input type="text" name="firstName"></label> <span class="error">* <?php echo $firstNameErr;?></span> <br/>
+				<label>Last Name: <input type="text" name="lastName"></label> <span class="error">* <?php echo $lastNameErr;?></span> <br/>
+				<label>Email: <input type="email" name="email"></label> <span class="error">* <?php echo $emailErr;?></span> <br/>
+				<label>Website: <input type="text" name="website"></label> <span class="error">* <?php echo $websiteErr;?></span> <br/><br/>
+				<label>Male: <input type="radio" name="gender" value="male"></label><br/>
+				<label>Female: <input type="radio" name="gender" value="female"></label>
+				<span class="error">* <?php echo $genderErr;?></span>
+				<br/><br/>
+				<input type="submit" name="submit" value="Submit">
+
+				<!-- // To show values in input fields after the submit button is hit, add PHP script inside value attribute. Code below -->
+				<!-- // Name: <input type="text" name="name" value="<?php // echo $name; ?>">  -->
+				<!-- <input type="radio" name="gender"
+					<?php //if (isset($gender) && $gender=="female") echo "checked";?>
+						value="female">Female -->
+			</form>
+		</div>
+	</div>
+</body>
+</html>
